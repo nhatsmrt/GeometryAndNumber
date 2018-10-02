@@ -63,4 +63,12 @@ public class Complex {
   public boolean isZero() {
     return real == 0 && img == 0;
   }
+  
+  public boolean isReal() {
+    return img == 0;
+  }
+  
+  public boolean isImaginary() {
+    return real == 0;
+  }
 }
