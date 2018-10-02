@@ -1,8 +1,8 @@
-class Complex {
-  private float real;
-  private float img;
+public class Complex {
+  private double real;
+  private double img;
 
-  public Complex(float re, float im) {
+  public Complex(double re, double im) {
     this.real = re;
     this.img = im;
   }
@@ -16,20 +16,32 @@ class Complex {
   }
 
   public Complex multiply(Complex other) {
-    float newRe = re() * other.re() - im() * other.im();
-    float newIm = im() * other.re() + re() * other.im();
+    double newRe = re() * other.re() - im() * other.im();
+    double newIm = im() * other.re() + re() * other.im();
     return new Complex(newRe, newIm);
+  }
+  
+  public Complex scale(double factor) {
+    return new Complex(real * factor, img * factor);
   }
   
   public Complex reciprocal() {
     if (re() == 0 && im() == 0)
        throw new IllegalArgumentException();
       
-    float scale = re() * re() + im() * im();
-    float newRe = re() / scale;
-    float newIm = -im() / scale;
+    double scale = re() * re() + im() * im();
+    double newRe = re() / scale;
+    double newIm = -im() / scale;
     
     return new Complex(newRe, newIm);
+  }
+  
+  public Complex conjugate() {
+    return new Complex(re(), -im());
+  }
+  
+  public double norm() {
+    return Math.sqrt(re() * re() + im() * im());
   }
   
   public Complex divide(Complex other) {
@@ -40,11 +52,15 @@ class Complex {
     return re() == other.re() && im() == other.im();
   }
 
-  public float re() {
+  public double re() {
     return real;
   }
 
-  public float im() {
+  public double im() {
     return img;
+  }
+  
+  public boolean isZero() {
+    return real == 0 && img == 0;
   }
 }

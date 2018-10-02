@@ -2,6 +2,10 @@ class PolygonComplex {
    private Complex[] points;
    
    public PolygonComplex(Complex[] points) {
+      GeometryComplex = new GeometryComplex();
+      if (!GeometryComplex.isConvex(points)
+         throw new IllegalArgumentException("List of points must be convex");
+         
       this.points = points;
    }
    
