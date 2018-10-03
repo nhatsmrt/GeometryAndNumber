@@ -60,6 +60,12 @@ public class Complex {
     return img;
   }
   
+  // return argument of the complex number
+  // wrapper for atan2
+  public double arg() {
+    return Math.atan2(img, real);
+  }
+  
   public boolean isZero() {
     return real == 0 && img == 0;
   }
