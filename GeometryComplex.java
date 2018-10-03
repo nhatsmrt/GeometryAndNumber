@@ -42,7 +42,6 @@ public class GeometryComplex {
    }
    
    // angle is in radians
-   // unimplemented
    public Complex rotate(Complex pt, Complex center, double angle) {
       Complex rotator = polarToCartesian(1.0, angle);
       return pt.subtract(center).multiply(rotator).add(center);
