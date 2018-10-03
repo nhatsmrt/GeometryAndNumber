@@ -1,4 +1,4 @@
-class PolygonComplex {
+public class PolygonComplex {
    private Complex[] points;
    
    public PolygonComplex(Complex[] points) {
@@ -32,8 +32,24 @@ class PolygonComplex {
       points[1] = new Complex(0, 0);
       points[2] = new Complex(3, 4);
       
+      Complex zero = new Complex(0, 0);
+      Complex one = new Complex(1, 0);
+      Complex i = new Complex(0, 1);
+      Complex mixed1 = new Complex(0, -1);
+      Complex mixed2 = new Complex(-1, 0);
+
+      
+      Complex[] squarePoints = new Complex[4];
+      squarePoints[0] = i;
+      squarePoints[1] = one;
+      squarePoints[2] = mixed1;
+      squarePoints[3] = mixed2;
+      
+      PolygonComplex square = new PolygonComplex(squarePoints);
       PolygonComplex polygon1 = new PolygonComplex(points);
+      
       System.out.println(polygon1.findArea());
+      System.out.println(square.findArea());
    }
    
 }

@@ -75,6 +75,28 @@ public class Complex {
   }
   
   public boolean isImaginary() {
-    return real == 0;
+    return real == 0 && img != 0;
+  }
+  
+  public String toString() {
+    if (isZero())
+      return "0";
+    
+    if (isReal())
+      return Double.toString(real);
+    
+    String imgString = "";
+    if (img == 1)
+      imgString = "i";
+    else if (img == -1)
+      imgString = "-i";
+    else
+      imgString = Double.toString(img) + "i";
+      
+    if (isImaginary())
+      return imgString;
+      
+    String ret = Double.toString(real) + " + " + imgString;
+    return ret;
   }
 }
