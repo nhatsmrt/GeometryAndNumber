@@ -4,6 +4,7 @@ Some sources:
 http://web.evanchen.cc/handouts/cmplx/en-cmplx.pdf
 https://codeforces.com/blog/entry/22175
 **/
+
 public class GeometryComplex {
    
    // Check if a set of points is complex
@@ -34,10 +35,21 @@ public class GeometryComplex {
       return a.scale(scale);
    }
    
+   public Complex polarToCartesian(double radius, double angle) {
+      double real = radius * Math.cos(angle);
+      double img = radius * Math.sin(angle);
+      return new Complex(real, img);
+   }
+   
    // angle is in radians
    // unimplemented
-   public Complex rotate(Complex pt, double angle) {
-      return null;
+   public Complex rotate(Complex pt, Complex center, double angle) {
+      Complex rotator = polarToCartesian(1.0, angle);
+      return pt.subtract(center).multiply(rotator).add(center);
+   }
+   
+   public Complex translate(Complex pt, Complex vector) {
+      return pt.add(vector);
    } 
    
    public double pointDist(Complex a, Complex b) {
@@ -76,10 +88,14 @@ public class GeometryComplex {
       Complex a = new Complex(1.0, 2.0);
       Complex b = new Complex(2, 4);
       Complex c = new Complex(3, 5);
+      Complex zero = new Complex(0, 0);
+      Complex one = new Complex(1, 0);
       GeometryComplex geometer = new GeometryComplex();
       
       System.out.println(geometer.dotProduct(a, b));
       System.out.println(geometer.slopeThrough(c, a));
+      System.out.println(geometer.polarToCartesian(b.norm(), b.arg()));
+      System.out.println(geometer.rotate(one, zero, Math.PI/2));
    }
    
    
