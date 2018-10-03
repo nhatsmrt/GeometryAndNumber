@@ -2,7 +2,7 @@
 This repository holds my implementation of various (computational) geometry concepts through related numbers.
 # Implemented Class and Functionality:
 ## Complex:
-A class representing complex numbers. Its main purpose is to represent points in 2D plane.
+A class representing complex numbers. Its main purpose is to represent points in 2D plane, with the real component representing x-coordinate and the imaginary component representing y-coordinate.
 ## GeometryComplex:
 A class representing a geometer that can compute or perform different geometrical concepts. Functionality:
 1. boolean isCollinear(Complex a, Complex b, Complex c): Return true if a, b, c are collinear.
