@@ -12,3 +12,7 @@ A class representing a geometer that can compute or perform different geometrica
 ## PolygonComplex
 A class representing polygons, whose points are represented by Complex. Functionality:
 1. double findArea(): return the area of the polygon using shoelace formula.
+## Point3D
+A class representing points (or vectors) in 3D space, whose coordinates are real numbers (of type double). Functionality:
+1. double dot(Point3D other): return dot product between this point and other.
+2. Point3D cross(Point3D other): return cross product between this vector and other.
