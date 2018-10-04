@@ -10,7 +10,7 @@ public class PolygonComplex {
    }
    
    // Find area using shoelace's formula
-   public double findArea() {
+   public double area() {
       int numPoints = points.length;      
       double firstHalf = 0;
       double secondHalf = 0;
@@ -24,6 +24,16 @@ public class PolygonComplex {
       secondHalf += points[0].re() * points[numPoints - 1].im();
       
       return Math.abs(firstHalf - secondHalf) / 2;
+   }
+   
+   public double perimeter() {
+      double ret = 0;
+      
+      for (int i = 0; i < points.length - 1; i++)
+         ret += points[i].subtract(points[i + 1]).norm();
+      
+      ret += points[points.length - 1].subtract(points[0]).norm();
+      return ret;
    }
    
    public static void main(String[] args) {
@@ -48,8 +58,8 @@ public class PolygonComplex {
       PolygonComplex square = new PolygonComplex(squarePoints);
       PolygonComplex polygon1 = new PolygonComplex(points);
       
-      System.out.println(polygon1.findArea());
-      System.out.println(square.findArea());
+      System.out.println(polygon1.area());
+      System.out.println(square.area());
    }
    
 }
